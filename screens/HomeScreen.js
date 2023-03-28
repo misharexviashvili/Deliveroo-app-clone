@@ -1,9 +1,14 @@
-import { View, Text } from "react-native";
+import { View, Text, Image, TextInput } from "react-native";
 import React, { useLayoutEffect } from "react";
-
 import { useNavigation } from "@react-navigation/native";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import { StatusBar } from "expo-status-bar";
+import { SafeAreaView } from "react-native-safe-area-context";
+import {
+  UserIcon,
+  ChevronDownIcon,
+  MagnifyingGlassIcon,
+  AdjustmentsVerticalIcon,
+} from "react-native-heroicons/outline";
+
 const HomeScreen = () => {
   const navigation = useNavigation();
   useLayoutEffect(() => {
@@ -11,11 +16,7 @@ const HomeScreen = () => {
       headerShown: false,
     });
   }, []);
-  return (
-    <SafeAreaView>
-      <Text className="text-red-500">HomeScreen</Text>
-    </SafeAreaView>
-  );
+  return <SafeAreaView></SafeAreaView>;
 };
 
 export default HomeScreen;
