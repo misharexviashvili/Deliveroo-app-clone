@@ -1,4 +1,11 @@
-import { View, Text, Image, TextInput, SafeAreaView } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  SafeAreaView,
+  Platform,
+} from "react-native";
 import React, { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 // import { SafeAreaView } from "react-native-safe-area-context";
@@ -10,6 +17,7 @@ import {
 } from "react-native-heroicons/outline";
 import { ScrollView } from "react-native";
 import Categories from "../components/Categories";
+import FeaturedRow from "../components/FeaturedRow";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -21,7 +29,10 @@ const HomeScreen = () => {
   // TODO: Create different JSX for Android and iOS, with If Platform.OS===
   return (
     <SafeAreaView className="bg-white pt-5">
-      <View className="flex-row pb-3 items-center mx-4 space-x-2">
+      <View
+        className="flex-row pb-3 items-center mx-4 space-x-2"
+        style={Platform.OS === "android" ? { marginTop: 16 } : null}
+      >
         <Image
           source={{ uri: "https://links.papareact.com/wru" }}
           className="h-7 w-7 bg-gray-300 p-4 rounded-full"
@@ -49,6 +60,21 @@ const HomeScreen = () => {
 
       <ScrollView className="bg-gray-100">
         <Categories />
+        <FeaturedRow
+          title="Featured"
+          description="Paid placements from our partners"
+          id="123"
+        />
+        <FeaturedRow
+          title="Tasty discounts"
+          description="Everyone's been enjoying these juicy discounts"
+          id="1234"
+        />
+        <FeaturedRow
+          title="Offers near you!"
+          description="Why not support your local restaurant today!"
+          id="12345"
+        />
       </ScrollView>
     </SafeAreaView>
   );
